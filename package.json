@@ -1,0 +1,41 @@
+{
+  "name": "@extrawatts/erc20-template",
+  "version": "1.0.0",
+  "description": "ERC20 template for coin",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./scripts/start_ganache.sh && ./scripts/test.sh",
+    "build": "rm -rf build/ && truffle compile",
+    "coverage": "truffle run coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/extrawatts/erc20-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/extrawatts/erc20-template/issues"
+  },
+  "homepage": "https://github.com/extrawatts/erc20-template#readme",
+  "dependencies": {
+    "@openzeppelin/contracts": "^3.4.1",
+    "@truffle/hdwallet-provider": "^1.2.1",
+    "dotenv": "^8.2.0",
+    "truffle-contract-size": "^2.0.1"
+  },
+  "devDependencies": {
+    "@openzeppelin/test-helpers": "^0.5.9",
+    "chai": "^4.3.3",
+    "eth-gas-reporter": "^0.2.22",
+    "ganache-cli": "^6.12.2",
+    "mocha": "^8.3.1",
+    "solidity-coverage": "^0.7.16",
+    "truffle": "^5.2.3",
+    "truffle-plugin-verify": "^0.5.0"
+  }
+}
