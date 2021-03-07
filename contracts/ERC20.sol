@@ -1,20 +1,19 @@
 // SPDX-License-Identifier: MIT
 // Latest stable version of solidity
-pragma solidity ^0.8.0;
+pragma solidity ^0.7.4;
 // It is being needed to use struct  arrays
 pragma experimental ABIEncoderV2;
 
 // Main contract to implement. Our coin is also an ERC20 coin.
-import "@openzeppelin/contracts/token/SafeERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20Pausable.sol";
 // SafeMath allows us to make maths without thinking overflows
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "@openzeppelin/contracts/math/SafeMath.sol";
 // It is needed for make one address to owner of contract and use that address
 // to alter contract
 import "@openzeppelin/contracts/access/Ownable.sol";
-// Pausablity important due to unknown future ahead of us.
-import "@openzeppelin/contracts/security/Pausable.sol";
 
-contract Token is Pausable, SafeERC20, Ownable {
+contract Token is ERC20Pausable, Ownable {
+    using SafeMath for uint256;
     // Official release time of token
     uint256 public releaseTime;
     // Total max supply of token
@@ -24,7 +23,7 @@ contract Token is Pausable, SafeERC20, Ownable {
         string memory _name,
         string memory _symbol,
         uint256 _initialSupply
-    ) public ERC20(_name, _symbol) {
+    ) ERC20(_name, _symbol) {
         _mint(msg.sender, _initialSupply);
     }
 
