@@ -9,8 +9,7 @@ const { BN, expectEvent, expectRevert } = require('@openzeppelin/test-helpers');
 const Box = artifacts.require('Box');
 
 // Start test block
-contract('Box', function ([owner, other]) {
-
+contract('Box', ([owner, other]) => {
   // Use large integers ('big numbers')
   const value = new BN('42');
 
@@ -36,7 +35,7 @@ contract('Box', function ([owner, other]) {
     // Test a transaction reverts
     await expectRevert(
       this.box.store(value, { from: other }),
-      'Ownable: caller is not the owner'
+      'Ownable: caller is not the owner',
     );
   });
 });

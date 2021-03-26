@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 // Latest stable version of solidity
-pragma solidity ^0.7.4;
+pragma solidity ^0.8.0;
 // It is being needed to use struct  arrays
 pragma experimental ABIEncoderV2;
 
